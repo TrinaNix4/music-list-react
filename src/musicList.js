@@ -33,7 +33,7 @@ deleteSong = (songName)=>{
 this.setState({
   songs:filteredSongs
 })
-
+}
 renderSongs=()=>{
   //use this.state to map over songs
   return this.state.songs.map(song=>{
@@ -43,9 +43,9 @@ renderSongs=()=>{
         <p>{song.artist}</p>
         <button onClick={()=>this.deleteSong(song.name)}>delete</button>
       </div>
-    )
-  })
-}
+    );
+  });
+};
 
 toggleForm=()=>{
   this.setState({
@@ -64,6 +64,7 @@ render(){
     {this.renderSongs()}
     </div>
   );
-}
-}
+
+}}
+
 export default List;

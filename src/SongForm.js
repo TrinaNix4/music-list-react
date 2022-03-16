@@ -4,8 +4,8 @@ class SongForm extends React.Component{
     constructor(props){
       super(props)
       this.state={
-        title,
-        artist,
+        title: 'title',
+        artist: 'price',
       }
     }
 
@@ -27,7 +27,7 @@ class SongForm extends React.Component{
           <p>title</p>
           <input name='title' value={this.state.title} onChange={this.handleChange}/>
           <p>artist</p>
-          <input name='artist' value={this.state.artist} onChange=(this.handleChange)/>
+          <input name='artist' value={this.state.artist} onChange={this.handleChange}/>
           <button>add</button>
           </form>
         </div>
