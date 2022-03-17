@@ -4,12 +4,14 @@ class SongForm extends React.Component{
     constructor(props){
       super(props)
       this.state={
-        title: 'title',
-        artist: 'price',
+        title: '',
+        artist: '',
       }
     }
 
     handleChange = (e)=>{
+      console.log('value', e.target.value)
+      console.log('name', e.target.name)
       this.setState({
         [e.target.name]:e.target.value
       })
@@ -17,6 +19,7 @@ class SongForm extends React.Component{
     handleSubmit=(e)=>{
       //don't want to get rid of all pre-populated fields in the form
       e.preventDefault()
+      console.log(this.state)
       this.props.addSong(this.state)
     }
     render(){

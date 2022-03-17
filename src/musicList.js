@@ -26,22 +26,22 @@ addSong =(song) => {
   })
 }
 
-deleteSong = (songName)=>{
+deleteSong = (songTitle)=>{
   //delete from DB (skipped for this project)
   //remove from state
-  let filteredSongs = this.state.songs.filter(song => song.title !== songName)
+  let filteredSongs = this.state.songs.filter(t => t.title !== songTitle)
 this.setState({
   songs:filteredSongs
 })
 }
 renderSongs=()=>{
   //use this.state to map over songs
-  return this.state.songs.map(song=>{
+  return this.state.songs.map((t)=>{
     return(
-      <div>
-        <h1>{song.title}</h1>
-        <p>{song.artist}</p>
-        <button onClick={()=>this.deleteSong(song.name)}>delete</button>
+      <div className='border'>
+        <h1>{t.title}</h1>
+        <p>{t.artist}</p>
+        <button onClick={()=>this.deleteSong(t.title)}>delete</button>
       </div>
     );
   });
@@ -58,13 +58,16 @@ render(){
     <div>
     {/* grab the value of showForm state, if it's true, render songForm
     if false, don't render it (show it/don't show it) */}
-      <button onClick={this.toggleForm}>{this.state.showForm ? 'hide' : 'show'}</button>
+    <button onClick={this.toggleForm}>{this.state.showForm ? 'hide' : 'show'}</button>
     {this.state.showForm && <SongForm addSong={this.addSong} />}
     {/* call the renderSongs function */}
+    <h1>MusicList</h1>
+    
     {this.renderSongs()}
     </div>
-  );
+    );
 
-}}
+  }
+}
 
 export default List;
